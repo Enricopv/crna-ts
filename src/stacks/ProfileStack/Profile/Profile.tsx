@@ -12,17 +12,17 @@ interface Props {
   navigation: NavigationScreenProp<{}, {}>;
 }
 
-export default class Main extends React.Component<Props> {
+export default class Profile extends React.Component<Props> {
 
   static navigationOptions = {
-    title: 'Main',
+    title: 'Profile',
   };
 
   public render() {
     return (
       <View style={{ justifyContent: "center", alignItems: "center", flex: 1 }}>
-        <Text>This is the main page</Text>
-        <Button title="Press Me" onPress={ev => this.navigate(ev, "Detail")} />
+        <Text>This is where you might a Profile and a way to view some Account Options</Text>
+        <Button title="Press Me to see Options" onPress={ev => this.navigate(ev, "Options")} />
       </View>
     );
   }

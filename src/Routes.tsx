@@ -1,7 +1,11 @@
-import * as React from "react";
-import { createStackNavigator, createTabNavigator } from "react-navigation";
-import { Main, Detail } from './stacks'
-import { Signup, Login, ForgotPassword } from './stacks/AuthStack'
+import {
+  createBottomTabNavigator,
+  createStackNavigator
+} from "react-navigation";
+import { ForgotPassword, Login, Signup } from "./stacks/AuthStack";
+import { Detail, Main } from "./stacks/HomeStack";
+import { Options, Profile } from "./stacks/ProfileStack";
+// import { Logo, NotificationsButton } from './stacks/components'
 
 const HomeStack = createStackNavigator(
   {
@@ -9,15 +13,35 @@ const HomeStack = createStackNavigator(
     Detail
   },
   {
-    initialRouteName: "Main"
+    initialRouteName: "Main",
+    navigationOptions: ({navigation}) => ({
+      headerStyle: {backgroundColor: 'white'},
+      title: 'Feed',
+      // headerTitle: <Logo/>,
+      // headerRight: <NotificationsButton navigation={navigation}/>
+    })
   }
 );
 
-// const TabStack = createTabNavigator(
-//   {
+const ProfileStack = createStackNavigator(
+  {
+    Options,
+    Profile
+  },
+  {
+    initialRouteName: "Profile"
+  }
+);
 
-//   }
-// )
+const TabStack = createBottomTabNavigator(
+  {
+  HomeStack,
+  ProfileStack
+}, {
+  initialRouteName: "HomeStack",
+
+}
+);
 
 const AuthStack = createStackNavigator(
   {
@@ -34,12 +58,12 @@ const AuthStack = createStackNavigator(
 const AppStack = createStackNavigator(
   {
     AuthStack,
-    HomeStack
+    TabStack
   },
   {
     headerMode: "none",
     initialRouteName: "AuthStack"
   }
-)
+);
 
-export default AppStack
+export default AppStack;
