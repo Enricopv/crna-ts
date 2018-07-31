@@ -1,15 +1,45 @@
 import * as React from "react";
-import { createStackNavigator } from "react-navigation";
-import { Main } from './pages'
+import { createStackNavigator, createTabNavigator } from "react-navigation";
+import { Main, Detail } from './stacks'
+import { Signup, Login, ForgotPassword } from './stacks/AuthStack'
 
-const AppStack = createStackNavigator(
+const HomeStack = createStackNavigator(
   {
-    Main
+    Main,
+    Detail
   },
   {
-    headerMode: "none",
     initialRouteName: "Main"
   }
 );
+
+// const TabStack = createTabNavigator(
+//   {
+
+//   }
+// )
+
+const AuthStack = createStackNavigator(
+  {
+    Login,
+    Signup,
+    ForgotPassword
+  },
+  {
+    headerMode: "none",
+    initialRouteName: "Login"
+  }
+);
+
+const AppStack = createStackNavigator(
+  {
+    AuthStack,
+    HomeStack
+  },
+  {
+    headerMode: "none",
+    initialRouteName: "AuthStack"
+  }
+)
 
 export default AppStack
