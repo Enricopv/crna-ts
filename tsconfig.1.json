@@ -14,13 +14,21 @@
     "importHelpers": true,
     "strict": true,
     "noImplicitReturns": true,
+    "baseUrl": "src",
+    "paths": {
+      "DashboardComponents/*": ["./pages/Dashboard/pages/components/*"],
+      "graphql/*": ["./graphql/*"]
+    },
+    // "lib": ["es6", "dom", "esnext.asynciterable"],
     "allowJs": true,
+    "rootDir": "src",
     "forceConsistentCasingInFileNames": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
     "strictNullChecks": false,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
+    "noImplicitUseStrict": true
   },
   "exclude": [
     "node_modules",
