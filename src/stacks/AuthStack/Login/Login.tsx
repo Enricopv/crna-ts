@@ -3,10 +3,11 @@ import {
   Button,
   NativeSyntheticEvent,
   NativeTouchEvent,
-  Text,
+  // Text,
   View
 } from "react-native";
 import { NavigationScreenProp } from "react-navigation";
+import { Text } from "native-base"
 
 interface Props {
   navigation: NavigationScreenProp<{}, {}>;
